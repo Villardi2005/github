@@ -1,16 +1,9 @@
-"""
-ASGI config for hello_world project.
+from django.db import models
 
-It exposes the ASGI callable as a module-level variable named ``application``.
+class Professor(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    senha = models.CharField(max_length=128)
 
-For more information on this file, see
-https://docs.djangoproject.com/en/5.0/howto/deployment/asgi/
-"""
-
-import os
-
-from django.core.asgi import get_asgi_application
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hello_world.settings")
-
-application = get_asgi_application()
+    def __str__(self):
+        return self.nome
