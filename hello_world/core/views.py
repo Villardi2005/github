@@ -1,7 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Professor
+from django.contrib import messages
 
-def index(request):
-    context = {
-        "title": "Django example",
-    }
-    return render(request, "index.html", context)
+def cadastro_professor(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+
+        if nome and email and senha:
+            if Professor.objects.filter(email=email).exists():
+                messages.error(request, "Este e-mail já está cadastrado.")
+            else:
+                Professor.objects.create(nome=nome, email=email, senha=senha)
+                messages.success(request, "Cadastro realizado com sucesso!")
+                return redirect('cadastro_professor')
+        else:
+            messages.error(request, "Preencha todos os campos.")
+    
+    return render(request, 'cadastroprofessor.html')
