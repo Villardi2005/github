@@ -2,17 +2,18 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Professores</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Cadastro de Professor</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
   <div class="container">
-    <img src="0704f303-27e8-4b21-b4ca-e2391127c49e.png" alt="Logo Educação" class="top-image">
-    
-    <h1>Cadastro de Professores</h1>
-    
-    <form class="formulario">
+    <img src="{% static '0704f303-27e8-4b21-b4ca-e2391127c49e.png' %}" alt="Logo Educação" class="top-image">
+
+    <h1>Cadastro de Professor</h1>
+
+    <form method="post" class="formulario">
+      {% csrf_token %}
+
       <label for="nome">Nome completo</label>
       <input type="text" id="nome" name="nome" required>
 
@@ -23,8 +24,16 @@
       <input type="password" id="senha" name="senha" required>
 
       <button type="submit">Cadastrar</button>
-      
+
       <a href="#" class="esqueci-senha">Esqueceu sua senha?</a>
+
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </form>
   </div>
 </body>
