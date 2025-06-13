@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from evasao import views
 
 urlpatterns = [
     path('cadastroprofessor/', views.cadastro_professor, name='cadastro_professor'),

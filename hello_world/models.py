@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class Professor(models.Model):
     nome = models.CharField(max_length=100)
@@ -7,7 +8,6 @@ class Professor(models.Model):
 
     def __str__(self):
         return self.nome
-from django.contrib.auth.models import AbstractUser
 
 class Usuario(AbstractUser):
     nome_completo = models.CharField(max_length=150, blank=True)
