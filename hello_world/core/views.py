@@ -23,3 +23,16 @@ def cadastro_professor(request):
 def login_view(request):
     return render(request, 'login.html')
 
+from .forms import AlunoForm
+
+def cadastrar_aluno(request):
+    if request.method == 'POST':
+        form = AlunoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('aluno_sucesso')
+    else:
+        form = AlunoForm()
+    return render(request, 'cadastrar_aluno.html', {'form': form})
+
+
