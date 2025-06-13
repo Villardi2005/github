@@ -3,6 +3,9 @@ from .models import Professor
 from django.contrib import messages
 from .forms import AlunoForm
 
+def index(request):
+    return render(request, 'index.html')
+
 # def cadastro_professor(request):
 #     if request.method == 'POST':
 #         nome = request.POST.get('nome')
