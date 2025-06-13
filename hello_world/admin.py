@@ -12,3 +12,6 @@ from .models import Usuario
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ['username', 'email', 'nome_completo', 'telefone']
 
+from .models import Responsavel
+
+admin.site.register(Responsavel)
