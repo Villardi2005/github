@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+# from django.contrib.auth.models import AbstractUser
 
 class Professor(models.Model):
     nome = models.CharField(max_length=100)
@@ -9,12 +9,12 @@ class Professor(models.Model):
     def __str__(self):
         return self.nome
 
-class Usuario(AbstractUser):
-    nome_completo = models.CharField(max_length=150, blank=True)
-    telefone = models.CharField(max_length=15, blank=True)
+# class Usuario(AbstractUser):
+#     nome_completo = models.CharField(max_length=150, blank=True)
+#     telefone = models.CharField(max_length=15, blank=True)
 
-    def __str__(self):
-        return self.username
+#     def __str__(self):
+#         return self.username
         
 class Aluno(models.Model):
     nome = models.CharField(max_length=100)
