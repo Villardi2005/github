@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Professor
 from django.contrib import messages
+from .forms import AlunoForm
 
 def cadastro_professor(request):
     if request.method == 'POST':
@@ -23,7 +24,6 @@ def cadastro_professor(request):
 def login_view(request):
     return render(request, 'login.html')
 
-from .forms import AlunoForm
 
 def cadastrar_aluno(request):
     if request.method == 'POST':
