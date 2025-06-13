@@ -15,5 +15,8 @@ urlpatterns = [
 
 urlpatterns = [
     path('cadastro/aluno/', views.cadastrar_aluno, name='cadastrar_aluno'),
-    path('cadastro/aluno/sucesso/', lambda request: render(request, 'sucesso.html'), name='aluno_sucesso'),
+]
+
+urlpatterns = [
+    path('cadastro/', views.cadastro_responsavel, name='cadastro_responsavel'),
 ]
