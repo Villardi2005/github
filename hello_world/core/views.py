@@ -35,4 +35,13 @@ def cadastrar_aluno(request):
         form = AlunoForm()
     return render(request, 'cadastrar_aluno.html', {'form': form})
 
+def cadastro_responsavel(request):
+    if request.method == 'POST':
+        form = ResponsavelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cadastro_responsavel')
+    else:
+        form = ResponsavelForm()
+    return render(request, 'cadastro/cadastro_responsavel.html', {'form': form})
 
