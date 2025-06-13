@@ -13,3 +13,9 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),  
 ]
 
+from . import views
+
+urlpatterns = [
+    path('cadastro/aluno/', views.cadastrar_aluno, name='cadastrar_aluno'),
+    path('cadastro/aluno/sucesso/', lambda request: render(request, 'sucesso.html'), name='aluno_sucesso'),
+]
