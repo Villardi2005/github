@@ -19,3 +19,9 @@ def cadastro_professor(request):
             messages.error(request, "Preencha todos os campos.")
     
     return render(request, 'cadastroprofessor.html')
+
+from django.shortcuts import render
+
+def login_view(request):
+    return render(request, 'login.html')
+
