@@ -9,6 +9,14 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+def cadastroaluno(request):
+    return render(request, 'cadastroaluno.html')
+
+def cadastroprofessor(request):
+    return render(request, 'cadastroprofessor.html')
+
+def cadastroresponsavel(request):
+    return render(request, 'cadastroresponsavel.html')
 
 # def cadastro_professor(request):
 #     if request.method == 'POST':

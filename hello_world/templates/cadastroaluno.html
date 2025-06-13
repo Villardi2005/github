@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Aluno</title>
+    <link rel="stylesheet" href="static/cadastroaluno.css">
+</head>
+<body>
+    <div class="container">
+        <img src="static/logo.png" alt="Logo Avança+" class="logo">
+        <h1>Avança+</h1>
+
+        <form class="formulario">
+            <select name="tipo" id="tipo">
+                <option value="aluno">Aluno</option>
+            </select>
+
+            <input type="text" placeholder="Nome completo" required>
+            <input type="text" placeholder="E-mail institucional" required>
+            <input type="date" placeholder="Data de nascimento" required>
+
+            <button type="submit" class="btn-registrar">Registrar</button>
+        </form>
+
+        <p class="aviso">Será necessário validar seu email e/ou CPF</p>
+    </div>
+</body>
+</html>

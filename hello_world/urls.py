@@ -13,5 +13,8 @@ urlpatterns = [
     # path('cadastro/', views.cadastro_responsavel, name='cadastro_responsavel'),
     path('', views.index, name='index'),
     path('login', views.login, name='login'),
+    path('cadastroaluno', views.cadastroaluno, name='cadastroaluno'),
+    path('cadastroprofessor', views.cadastroprofessor, name='cadastroprofessor'),
+    path('cadastroresponsavel', views.cadastroresponsavel, name='cadastroresponsavel'),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
