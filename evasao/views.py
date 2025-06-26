@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Professor
+from .models import Aluno
 from django.contrib import messages
 from .forms import AlunoForm
 
@@ -20,6 +20,18 @@ def cadastroprofessor(request):
 
 def cadastroresponsavel(request):
     return render(request, 'cadastroresponsavel.html')
+
+def cadastroaluno(request):
+    if request.method == 'POST':
+        form = AlunoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cadastro_concluido')  # você pode criar essa página depois
+    else:
+        form = AlunoForm()
+
+    return render(request, 'cadastroaluno.html', {'form': form})
+
 
 # def cadastro_professor(request):
 #     if request.method == 'POST':
