@@ -5,3 +5,5 @@ class AlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
         fields = ['nome', 'email', 'data_nascimento']
+
+#Criar para professor e responsavel

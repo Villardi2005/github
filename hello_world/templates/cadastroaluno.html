@@ -3,30 +3,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cadastro de Aluno</title>
-    <link rel="stylesheet" href="static/cadastroaluno.css">
+    <link rel="stylesheet" href="static/cadastroaluno.css" />
 </head>
 <body>
     <div class="container">
-        <img src="static/logo.png" alt="Logo Avança+" class="logo">
+        <img src="static/logo.png" alt="Logo Avança+" class="logo" />
         <h1>Avança+</h1>
 
-        <form class="formulario" method="post"> 
-            {% csrf_token %} 
-            <select name="tipo" id="tipo">
+        <form id="formCadastro" class="formulario" method="post">
+            {% csrf_token %}
+            <select name="tipo" id="tipo" required>
                 <option value="aluno">Aluno</option>
+                <option value="responsavel">Responsável</option>
+                <option value="professor">Professor</option>
             </select>
 
-            <input type="text" placeholder="Nome completo" required>
-            <input type="text" placeholder="E-mail institucional" required>
-            <input type="date" placeholder="Data de nascimento" required>
+            <input type="text" name="nome" placeholder="Nome completo" required />
+            <input type="email" name="email" placeholder="E-mail institucional" required />
+            <input type="password" name="senha" placeholder="Senha" required />
 
             <button type="submit" class="btn-registrar">Registrar</button>
         </form>
 
         <p class="aviso">Será necessário validar seu email e/ou CPF</p>
     </div>
+
+    <script>
+      const form = document.getElementById('formCadastro');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // evita submit tradicional
+
+        const tipo = document.getElementById('tipo').value;
+
+        // Aqui você pode fazer a validação dos dados, envio via AJAX, etc
+        // Mas para redirecionar direto para a página correta:
+        if(tipo === 'aluno') {
+          window.location.href = 'principalaluno.html';
+        } else if(tipo === 'responsavel') {
+          window.location.href = 'principalresponsavel.html';
+        } else if(tipo === 'professor') {
+          window.location.href = 'principalprofessor.html';
+        }
+      });
+    </script>
 </body>
 </html>

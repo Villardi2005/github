@@ -18,5 +18,8 @@ urlpatterns = [
     path('cadastroresponsavel', views.cadastroresponsavel, name='cadastroresponsavel'),
     path('cadastro', views.cadastro, name='cadastro'),
     path('admin',admin.site.urls),
+    path('painel-responsavel/', views.painel_responsavel, name='painel_responsavel'),
+    path('painel-professor/', views.painel_professor, name='painel_professor'),
+    path('minhas-metas/', views.minhas_metas, name='minhas_metas'),
     path("__reload__/", include("django_browser_reload.urls")),
 ]

@@ -1,16 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Avança+ Login</title>
-    <link rel="stylesheet" href="static/login.css" />
+    <link rel="stylesheet" href="{% static 'login.css' %}" />
 </head>
 <body>
     <div class="container">
-        <img src="static/logo.png" alt="Logo Avança+" class="logo" />
+        <img src="{% static 'logo.png' %}" alt="Logo Avança+" class="logo" />
         <h1>Avança+</h1>
-        <form>
+        <form method="post">
+            {% csrf_token %}
             <input type="text" placeholder="CPF ou e-mail" name="cpf_email" required />
             <input type="password" placeholder="Senha" name="senha" required />
             <button type="submit">Entrar</button>
@@ -19,3 +21,4 @@
     </div>
 </body>
 </html>
+
